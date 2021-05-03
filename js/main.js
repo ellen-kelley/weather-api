@@ -24,6 +24,11 @@ const getData = (location) => {
     .then((res) => res)
     .then((data) => {
       processData(data.data, location);
+    })
+    .catch(() => {
+      document.querySelector(
+        ".forecast-container"
+      ).innerHTML = ` <div class="error-msg">Please search for a valid city 😩</div>`;
     });
 };
 
@@ -33,10 +38,16 @@ const processData = (data, location) => {
   localStorage.setItem("location", location);
 
   const { description, temperature, wind, forecast } = data;
-  printTodayForecast(location, description, temperature, wind);
-  changeIcons(description);
-  printUpcomingForecast(forecast);
-  dayOfTheWeek();
+  if (temperature == "" && wind == "") {
+    document.querySelector(
+      ".forecast-container"
+    ).innerHTML = ` <div class="error-msg">Please search for a valid city 😩</div>`;
+  } else {
+    printTodayForecast(location, description, temperature, wind);
+    changeIcons(description);
+    printUpcomingForecast(forecast);
+    dayOfTheWeek();
+  }
 };
 
 const dayOfTheWeek = () => {

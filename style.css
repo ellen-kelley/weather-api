@@ -1732,6 +1732,7 @@ datalist {
 
 .forecast-container {
   width: 100%;
+  min-height: 120px;
   background: #323544;
   display: table;
   table-layout: fixed;
@@ -1740,6 +1741,13 @@ datalist {
   border-radius: 10px;
   margin-top: -150px;
   margin-bottom: 50px;
+}
+.forecast-container .error-msg {
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 40px;
+  color: #fff;
 }
 .forecast-container .forecast {
   display: table-cell;
@@ -1821,9 +1829,9 @@ datalist {
   text-align: center;
 }
 
-.forecast-container .forecast.today .description-container{
- display: flex;
- justify-content: space-between;
+.forecast-container .forecast.today .description-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .forecast-container .forecast .forecast-content .forecast-icon {
