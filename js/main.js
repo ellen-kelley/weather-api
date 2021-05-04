@@ -8,7 +8,7 @@ window.addEventListener("load", (e) => {
     const location = localStorage.getItem("location");
     processData(data, location);
   } else {
-    getData("new york");
+    getData("london");
   }
 });
 
